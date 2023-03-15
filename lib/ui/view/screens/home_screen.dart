@@ -9,8 +9,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: StoriesWidgets(),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 100,
+          ),
+          Container(
+            child: StoriesWidgets(),
+          ),
+        ],
       ),
     );
   }
