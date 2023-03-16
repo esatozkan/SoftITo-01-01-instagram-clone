@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/data/constants/constants.dart';
+import 'package:instagram_clone/ui/providers/post_provider.dart';
 import 'package:instagram_clone/ui/providers/story_provider.dart';
 import 'package:instagram_clone/ui/view/screens/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,7 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ListenableProvider(create: (_) => StoryProvider()),
+      ListenableProvider(create: (_) => PostProvider()),
     ],
     child: const MyApp(),
   ));
