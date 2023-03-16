@@ -17,6 +17,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: size.width,
@@ -109,31 +110,37 @@ class _TimelinePostsState extends State<TimelinePosts> {
             ),
           ],
         ),
-        Text(
-          widget.post.likeCount.toString(),
-          textAlign: TextAlign.left,
-          style:
-              const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        RichText(
-          textAlign: TextAlign.left,
-          text: TextSpan(
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                print(widget.post.username);
-              },
-            text: widget.post.username,
+        Padding(
+          padding: const EdgeInsets.only(left: 5, top: 2),
+          child: Text(
+            widget.post.likeCount.toString(),
+            textAlign: TextAlign.left,
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
-            children: [
-              const TextSpan(text: " "),
-              TextSpan(
-                text: widget.post.content,
-                style: const TextStyle(
-                  fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 5, top: 2),
+          child: RichText(
+            textAlign: TextAlign.left,
+            text: TextSpan(
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print(widget.post.username);
+                },
+              text: widget.post.username,
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
+              children: [
+                const TextSpan(text: " "),
+                TextSpan(
+                  text: widget.post.content,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
