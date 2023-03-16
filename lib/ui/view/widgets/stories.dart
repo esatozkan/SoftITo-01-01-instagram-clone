@@ -44,7 +44,7 @@ class _StoriesState extends State<Stories> {
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 widget.name,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             )
           ],

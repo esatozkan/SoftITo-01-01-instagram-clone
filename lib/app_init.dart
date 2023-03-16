@@ -15,10 +15,8 @@ class AppInit extends StatelessWidget {
     return AnimatedSplashScreen.withScreenFunction(
       backgroundColor: bgColor,
       curve: Curves.easeOut,
-      splash: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-        ),
+      splash: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
         child: Image.asset('assets/logo.png'),
       ),
       duration: 2000,
