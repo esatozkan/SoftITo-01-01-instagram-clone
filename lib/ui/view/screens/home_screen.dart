@@ -1,6 +1,6 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/ui/providers/post_provider.dart';
-import 'package:instagram_clone/ui/view/screens/profile_screen.dart';
 import 'package:instagram_clone/ui/view/widgets/custom_bottom_nav_bar.dart';
 import 'package:instagram_clone/ui/view/widgets/stories.dart';
 import 'package:instagram_clone/ui/view/widgets/timeline_appbar.dart';
@@ -12,16 +12,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = const [
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      ProfileScreen(),
-    ];
     PostProvider postProvider = Provider.of<PostProvider>(context);
     return Scaffold(
-      appBar: TimelineAppbar(),
+      appBar: const TimelineAppbar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -33,14 +26,18 @@ class HomeScreen extends StatelessWidget {
                 itemCount: 20,
                 itemBuilder: (context, index) => Stories(
                     color: index == 0 ? Colors.green : Colors.yellow,
-                    image: "assets/profilePhoto.jpeg",
-                    name: "Your Story"),
+                    image: Faker().image.image(
+                        random: true,
+                        keywords: ["person"],
+                        width: 68,
+                        height: 68),
+                    name: Faker().person.firstName()),
               ),
             ),
             Flexible(
               child: ListView(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   ...postProvider.posts
                       .map((e) => TimelinePosts(post: e))

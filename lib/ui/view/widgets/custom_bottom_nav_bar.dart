@@ -1,6 +1,7 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/data/constants/constants.dart';
-import 'package:instagram_clone/ui/providers/home_provider.dart';
+import '/data/constants/constants.dart';
+import '/ui/providers/home_provider.dart';
 import 'package:provider/provider.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
@@ -59,10 +60,14 @@ class CustomBottomNavBar extends StatelessWidget {
               onPressed: () {
                 homeProvider.setPage(4);
               },
-              icon: Image.asset(
-                'assets/icons/profile.png',
-                width: 25,
-                height: 25,
+              icon: ClipRRect(
+                borderRadius: BorderRadius.circular(100),
+                child: Image.network(
+                  Faker().image.image(keywords: ["people", "selfie", "person"]),
+                  width: 27,
+                  height: 27,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],
