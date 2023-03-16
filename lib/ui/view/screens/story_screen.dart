@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:instagram_clone/ui/providers/story_provider.dart';
-import 'package:instagram_clone/ui/view/screens/home_screen.dart';
+import '/ui/providers/story_provider.dart';
+import '/ui/view/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class StoryScreen extends StatelessWidget {
@@ -19,13 +19,13 @@ class StoryScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 00,
           ),
           Container(
             width: 500,
             height: 500,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
           )
         ],
       ),

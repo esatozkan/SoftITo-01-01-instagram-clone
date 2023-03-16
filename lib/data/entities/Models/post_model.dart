@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:faker/faker.dart';
 
 class PostModel {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/providers/profile_provider.dart';
-import 'package:instagram_clone/ui/view/widgets/profile_grid.dart';
-import 'package:instagram_clone/ui/view/widgets/profile_tag_grid.dart';
-import 'package:provider/provider.dart';
+import '/ui/view/widgets/profile_grid.dart';
+import '/ui/view/widgets/profile_tag_grid.dart';
 
 class ProfileTabBar extends StatefulWidget {
   const ProfileTabBar({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/data/constants/constants.dart';
-import 'package:instagram_clone/data/entities/Models/post_model.dart';
+import '/data/constants/constants.dart';
+import '/data/entities/Models/post_model.dart';
 
 class TimelinePosts extends StatefulWidget {
   final PostModel post;
