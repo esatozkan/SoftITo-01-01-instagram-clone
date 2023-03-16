@@ -24,7 +24,7 @@ class _StoriesState extends State<Stories> {
     StoryProvider storyProvider = Provider.of<StoryProvider>(context);
     return SizedBox(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8, top: 4),
         child: Column(
           children: [
             CircleAvatar(
@@ -41,7 +41,7 @@ class _StoriesState extends State<Stories> {
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 widget.name,
                 style: TextStyle(color: Colors.white),

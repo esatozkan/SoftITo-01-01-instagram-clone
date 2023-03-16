@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              height: 150,
+              height: 115,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 20,
