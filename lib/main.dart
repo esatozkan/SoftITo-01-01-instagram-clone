@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
       ),
-      home: AppInit(),
+      home: const AppInit(),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/data/constants/constants.dart';
+import '/data/constants/constants.dart';
 
 class ProfileTop extends StatelessWidget {
   const ProfileTop({super.key});
