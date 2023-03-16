@@ -1,13 +1,18 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:instagram_clone/data/constants/constants.dart';
 import 'package:instagram_clone/data/entities/Models/post_model.dart';
 
-class TimelinePosts extends StatelessWidget {
+class TimelinePosts extends StatefulWidget {
   final PostModel post;
   const TimelinePosts({super.key, required this.post});
 
+  @override
+  State<TimelinePosts> createState() => _TimelinePostsState();
+}
+
+class _TimelinePostsState extends State<TimelinePosts> {
+  bool _isLiked = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -54,7 +59,7 @@ class TimelinePosts extends StatelessWidget {
           ),
         ),
         Image.network(
-          post.media,
+          widget.post.media,
           fit: BoxFit.cover,
         ),
         Container(
@@ -65,11 +70,20 @@ class TimelinePosts extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/icons/heart.png",
-                  width: 30,
-                ),
+                onPressed: () {
+                  setState(() {
+                    _isLiked = !_isLiked;
+                  });
+                },
+                icon: _isLiked == false
+                    ? Image.asset(
+                        "assets/icons/heart.png",
+                        width: 30,
+                      )
+                    : Image.asset(
+                        "assets/icons/heart_pressed.png",
+                        width: 30,
+                      ),
               ),
               IconButton(
                 onPressed: () {},
@@ -85,7 +99,7 @@ class TimelinePosts extends StatelessWidget {
                   width: 30,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 onPressed: () {},
                 icon: Image.asset(
@@ -95,7 +109,24 @@ class TimelinePosts extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        RichText(
+          text: TextSpan(
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                print(widget.post.username);
+              },
+            text: widget.post.username,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
+            children: [
+              const TextSpan(text: " "),
+              TextSpan(
+                  text: widget.post.content,
+                  style: const TextStyle(fontWeight: FontWeight.normal)),
+            ],
+          ),
+        ),
       ],
     );
   }
