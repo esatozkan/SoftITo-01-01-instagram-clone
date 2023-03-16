@@ -19,6 +19,9 @@ class StoryScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            height: 00,
+          ),
           Container(
             width: 500,
             height: 500,

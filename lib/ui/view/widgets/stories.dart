@@ -1,57 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:instagram_clone/ui/providers/story_provider.dart';
-import 'package:instagram_clone/ui/view/screens/home_screen.dart';
-import 'package:instagram_clone/ui/view/screens/story_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/constants/constants.dart';
+import '../../providers/story_provider.dart';
 
-class StoriesWidgets extends StatefulWidget {
-  const StoriesWidgets({super.key});
+class Stories extends StatefulWidget {
+  const Stories(
+      {super.key,
+      required this.color,
+      required this.image,
+      required this.name});
+  final Color color;
+  final String image;
+  final String name;
 
   @override
-  State<StoriesWidgets> createState() => _StoriesWidgetsState();
+  State<Stories> createState() => _StoriesState();
 }
 
-class _StoriesWidgetsState extends State<StoriesWidgets> {
+class _StoriesState extends State<Stories> {
   @override
   Widget build(BuildContext context) {
-    return Story("assets/profilePhoto.jpeg", "Your story", Colors.green);
-  }
-
-  Widget Story(String image, String name, Color color) {
     StoryProvider storyProvider = Provider.of<StoryProvider>(context);
-    if (storyProvider.isClicked == true) {
-      return StoryScreen();
-    } else {
-      return TextButton(
-        onPressed: () {
-          storyProvider.setIsClicked(true);
-          storyProvider.setPhotoClicked(true);
-        },
+    return SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             CircleAvatar(
               radius: 42,
-              backgroundColor:
-                  storyProvider.getPhotoClicked == false ? color : Colors.grey,
+              backgroundColor: storyProvider.getPhotoClicked == false
+                  ? widget.color
+                  : Colors.grey,
               child: CircleAvatar(
                   radius: 39,
                   backgroundColor: bgColor,
                   child: CircleAvatar(
                     radius: 34,
-                    backgroundImage: AssetImage(image),
+                    backgroundImage: AssetImage(widget.image),
                   )),
             ),
-            Text(
-              name,
-              style: TextStyle(color: Colors.white),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.name,
+                style: TextStyle(color: Colors.white),
+              ),
             )
           ],
         ),
-      );
-    }
+      ),
+    );
   }
 }

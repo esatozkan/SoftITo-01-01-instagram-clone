@@ -13,17 +13,29 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     PostProvider postProvider = Provider.of<PostProvider>(context);
     return Scaffold(
-      appBar: const TimelineAppbar(),
-      body: Column(
-        children: [
-          const StoriesWidgets(),
-          Expanded(
+      appBar: TimelineAppbar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 150,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 20,
+                itemBuilder: (context, index) => Stories(
+                    color: index == 0 ? Colors.green : Colors.yellow,
+                    image: "assets/profilePhoto.jpeg",
+                    name: "Your Story"),
+              ),
+            ),
+            Expanded(
               child: ListView(
             children: [
               ...postProvider.posts.map((e) => TimelinePosts(post: e)).toList(),
             ],
           ))
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: const CustomBottomNavBar(),
     );
