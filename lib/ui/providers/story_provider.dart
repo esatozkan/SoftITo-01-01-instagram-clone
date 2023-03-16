@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/data/repository/story_repository.dart';
 
 class StoryProvider with ChangeNotifier {
   bool isClicked = false;
@@ -7,13 +8,15 @@ class StoryProvider with ChangeNotifier {
   bool get getIsClicked => isClicked;
   bool get getPhotoClicked => photoClicked;
 
+  StoryRepository storyRepo = StoryRepository();
+
   void setIsClicked(bool click) {
-    isClicked = click;
+    isClicked = storyRepo.setIsClicked(click);
     notifyListeners();
   }
 
   void setPhotoClicked(bool click) {
-    photoClicked = click;
+    photoClicked = storyRepo.setPhotoClicked(click);
     notifyListeners();
   }
 }
