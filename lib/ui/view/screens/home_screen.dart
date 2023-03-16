@@ -16,6 +16,7 @@ class HomeScreen extends StatelessWidget {
       appBar: TimelineAppbar(),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: 150,
@@ -28,12 +29,17 @@ class HomeScreen extends StatelessWidget {
                     name: "Your Story"),
               ),
             ),
-            Expanded(
+            Flexible(
               child: ListView(
-            children: [
-              ...postProvider.posts.map((e) => TimelinePosts(post: e)).toList(),
-            ],
-          ))
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  ...postProvider.posts
+                      .map((e) => TimelinePosts(post: e))
+                      .toList(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
