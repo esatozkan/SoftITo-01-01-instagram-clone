@@ -34,7 +34,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      widget.post.media,
+                      widget.post.userAvatar,
                       width: 35,
                       height: 35,
                       fit: BoxFit.cover,
