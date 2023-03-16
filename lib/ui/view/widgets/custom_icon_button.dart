@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
 
 class CustomIconButton extends StatelessWidget {
@@ -9,13 +7,15 @@ class CustomIconButton extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.onPressed,
-    }) : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: 15.0, right: 15.0, top: 25,
+        left: 15.0,
+        right: 15.0,
+        top: 25,
       ),
       child: Align(
         alignment: Alignment.topCenter,
