@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/ui/providers/post_provider.dart';
 import 'package:instagram_clone/ui/view/widgets/custom_bottom_nav_bar.dart';
@@ -25,8 +26,12 @@ class HomeScreen extends StatelessWidget {
                 itemCount: 20,
                 itemBuilder: (context, index) => Stories(
                     color: index == 0 ? Colors.green : Colors.yellow,
-                    image: "assets/profilePhoto.jpeg",
-                    name: "Your Story"),
+                    image: Faker().image.image(
+                        random: true,
+                        keywords: ["person"],
+                        width: 68,
+                        height: 68),
+                    name: Faker().person.firstName()),
               ),
             ),
             Flexible(

@@ -37,7 +37,7 @@ class _StoriesState extends State<Stories> {
                   backgroundColor: bgColor,
                   child: CircleAvatar(
                     radius: 34,
-                    backgroundImage: AssetImage(widget.image),
+                    backgroundImage: NetworkImage(widget.image),
                   )),
             ),
             Padding(
