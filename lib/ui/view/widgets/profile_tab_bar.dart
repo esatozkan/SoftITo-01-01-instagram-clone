@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/profile_provider.dart';
 import '/ui/view/widgets/profile_grid.dart';
 import '/ui/view/widgets/profile_tag_grid.dart';
 
@@ -27,7 +29,7 @@ class _ProfileTabBarState extends State<ProfileTabBar>
 
   @override
   Widget build(BuildContext context) {
-    // ProfileProvider profileProvider = Provider.of<ProfileProvider>(context);
+    ProfileProvider profileProvider = Provider.of<ProfileProvider>(context);
     return Expanded(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -36,12 +38,29 @@ class _ProfileTabBarState extends State<ProfileTabBar>
           TabBar(
             controller: _tabController,
             indicatorColor: Colors.white,
-            tabs: const [
+            onTap: (value) {
+              profileProvider.setTabIndex(value);
+            },
+            tabs: [
               Tab(
-                icon: Icon(Icons.grid_on),
+                icon: Opacity(
+                  opacity: profileProvider.getTabIndex == 0 ? 1 : 0.5,
+                  child: Image.asset(
+                    'assets/icons/photos.png',
+                    width: 28,
+                    color: Colors.white,
+                  ),
+                ),
               ),
               Tab(
-                icon: Icon(Icons.person_pin_outlined),
+                icon: Opacity(
+                  opacity: profileProvider.getTabIndex == 1 ? 1 : 0.5,
+                  child: Image.asset(
+                    'assets/icons/tags.png',
+                    width: 28,
+                    color: Colors.white,
+                  ),
+                ),
               )
             ],
           ),

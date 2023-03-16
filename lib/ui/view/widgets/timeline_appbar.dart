@@ -3,9 +3,9 @@ import 'custom_icon_button.dart';
 
 class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget {
   const TimelineAppbar({super.key});
-
   @override
-  Size get preferredSize => Size.fromHeight(56);
+  Size get preferredSize => const Size.fromHeight(56);
+  @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.black,
@@ -21,7 +21,7 @@ class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         CustomIconButton(
-          icon: 'assets/icons/story.png',
+          icon: 'assets/icons/heart.png',
           onPressed: () {},
         ),
         CustomIconButton(

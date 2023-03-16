@@ -16,57 +16,74 @@ class CustomBottomNavBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(
-              onPressed: () {
-                homeProvider.setPage(0);
-              },
-              icon: Image.asset(
-                'assets/icons/home.png',
-                width: 25,
-                height: 25,
+            Opacity(
+              opacity: homeProvider.getPage == 0 ? 1 : 0.5,
+              child: IconButton(
+                onPressed: () {
+                  homeProvider.setPage(0);
+                },
+                icon: Image.asset(
+                  'assets/icons/home.png',
+                  width: 25,
+                  height: 25,
+                ),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                homeProvider.setPage(1);
-              },
-              icon: Image.asset(
-                'assets/icons/discovery.png',
-                width: 25,
-                height: 25,
+            Opacity(
+              opacity: homeProvider.getPage == 1 ? 1 : 0.5,
+              child: IconButton(
+                onPressed: () {
+                  homeProvider.setPage(1);
+                },
+                icon: Image.asset(
+                  'assets/icons/discovery.png',
+                  width: 25,
+                  height: 25,
+                ),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                homeProvider.setPage(2);
-              },
-              icon: Image.asset(
-                'assets/icons/reels.png',
-                width: 25,
-                height: 25,
+            Opacity(
+              opacity: homeProvider.getPage == 2 ? 1 : 0.5,
+              child: IconButton(
+                onPressed: () {
+                  homeProvider.setPage(2);
+                },
+                icon: Image.asset(
+                  'assets/icons/story.png',
+                  width: 25,
+                  height: 25,
+                ),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                homeProvider.setPage(3);
-              },
-              icon: Image.asset(
-                'assets/icons/heart.png',
-                width: 25,
-                height: 25,
+            Opacity(
+              opacity: homeProvider.getPage == 3 ? 1 : 0.5,
+              child: IconButton(
+                onPressed: () {
+                  homeProvider.setPage(3);
+                },
+                icon: Image.asset(
+                  'assets/icons/reels.png',
+                  width: 25,
+                  height: 25,
+                ),
               ),
             ),
-            IconButton(
-              onPressed: () {
-                homeProvider.setPage(4);
-              },
-              icon: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.network(
-                  Faker().image.image(keywords: ["people", "selfie", "person"]),
-                  width: 27,
-                  height: 27,
-                  fit: BoxFit.cover,
+            Opacity(
+              opacity: 1,
+              child: IconButton(
+                onPressed: () {
+                  homeProvider.setPage(4);
+                },
+                icon: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.network(
+                    Faker()
+                        .image
+                        .image(keywords: ["people", "selfie", "person"]),
+                    width: 27,
+                    height: 27,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
