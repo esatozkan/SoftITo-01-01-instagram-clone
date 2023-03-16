@@ -26,7 +26,11 @@ class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () {},
         ),
         CustomIconButton(
-            icon: "assets/icons/direct_messaging.png", onPressed: () {}),
+            icon: "assets/icons/direct_messaging.png",
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ChatScreen()));
+            }),
       ],
     );
   }
