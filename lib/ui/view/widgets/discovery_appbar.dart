@@ -41,7 +41,7 @@ class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
                           child: Opacity(
                             opacity: 0.7,
                             child: Image.asset(
-                              "assets/icons/search.png",
+                              "assets/icons/discovery.png",
                             ),
                           ),
                         )
