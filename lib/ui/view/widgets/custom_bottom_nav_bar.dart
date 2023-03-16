@@ -74,15 +74,23 @@ class CustomBottomNavBar extends StatelessWidget {
                 onPressed: () {
                   homeProvider.setPage(4);
                 },
-                icon: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Image.network(
-                    Faker()
-                        .image
-                        .image(keywords: ["people", "selfie", "person"]),
-                    width: 27,
-                    height: 27,
-                    fit: BoxFit.cover,
+                icon: CircleAvatar(
+                  radius: 19,
+                  backgroundColor: Colors.green,
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: bgColor,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.network(
+                        Faker()
+                            .image
+                            .image(keywords: ["people", "selfie", "person"]),
+                        width: 27,
+                        height: 27,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ),
