@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:instagram_clone/data/constants/constants.dart';
+import 'package:instagram_clone/data/entities/Models/post_model.dart';
 
 class TimelinePosts extends StatelessWidget {
-  const TimelinePosts({super.key});
+  final PostModel post;
+  const TimelinePosts({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class TimelinePosts extends StatelessWidget {
         Container(
           width: size.width,
           height: 70,
-          decoration: const BoxDecoration(color: Colors.grey),
+          decoration: BoxDecoration(color: bgColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,13 +54,47 @@ class TimelinePosts extends StatelessWidget {
           ),
         ),
         Image.network(
-          "https://images.pexels.com/photos/11291701/pexels-photo-11291701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          post.media,
           fit: BoxFit.cover,
         ),
         Container(
           width: size.width,
           height: 100,
-          decoration: const BoxDecoration(color: Colors.grey),
+          decoration: BoxDecoration(color: bgColor),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  "assets/icons/heart.png",
+                  width: 30,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  "assets/icons/comment.png",
+                  width: 30,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  "assets/icons/dm.png",
+                  width: 30,
+                ),
+              ),
+              Spacer(),
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset(
+                  "assets/icons/save.png",
+                  width: 30,
+                ),
+              ),
+            ],
+          ),
         )
       ],
     );
