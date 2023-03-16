@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/ui/providers/post_provider.dart';
-import 'package:instagram_clone/ui/view/screens/profile_screen.dart';
 import 'package:instagram_clone/ui/view/widgets/custom_bottom_nav_bar.dart';
 import 'package:instagram_clone/ui/view/widgets/stories.dart';
 import 'package:instagram_clone/ui/view/widgets/timeline_appbar.dart';
@@ -12,16 +11,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = const [
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      ProfileScreen(),
-    ];
     PostProvider postProvider = Provider.of<PostProvider>(context);
     return Scaffold(
-      appBar: TimelineAppbar(),
+      appBar: const TimelineAppbar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -40,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             Flexible(
               child: ListView(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   ...postProvider.posts
                       .map((e) => TimelinePosts(post: e))
