@@ -1,11 +1,69 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class ProfileGrid extends StatelessWidget {
   const ProfileGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return GridView.count(
+      crossAxisCount: 3,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: Colors.white),
+          ),
+        ),
+      ],
+    );
   }
 }
