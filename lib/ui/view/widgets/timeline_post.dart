@@ -62,55 +62,57 @@ class _TimelinePostsState extends State<TimelinePosts> {
           widget.post.media,
           fit: BoxFit.cover,
         ),
-        Container(
-          width: size.width,
-          height: 100,
-          decoration: BoxDecoration(color: bgColor),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    _isLiked = !_isLiked;
-                  });
-                },
-                icon: _isLiked == false
-                    ? Image.asset(
-                        "assets/icons/heart.png",
-                        width: 30,
-                      )
-                    : Image.asset(
-                        "assets/icons/heart_pressed.png",
-                        width: 30,
-                      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  _isLiked = !_isLiked;
+                });
+              },
+              icon: _isLiked == false
+                  ? Image.asset(
+                      "assets/icons/heart.png",
+                      width: 30,
+                    )
+                  : Image.asset(
+                      "assets/icons/heart_pressed.png",
+                      width: 30,
+                    ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                "assets/icons/comment.png",
+                width: 30,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/icons/comment.png",
-                  width: 30,
-                ),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                "assets/icons/dm.png",
+                width: 30,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/icons/dm.png",
-                  width: 30,
-                ),
+            ),
+            const Spacer(),
+            IconButton(
+              onPressed: () {},
+              icon: Image.asset(
+                "assets/icons/save.png",
+                width: 30,
               ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {},
-                icon: Image.asset(
-                  "assets/icons/save.png",
-                  width: 30,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
+        ),
+        Text(
+          widget.post.likeCount.toString(),
+          textAlign: TextAlign.left,
+          style:
+              const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         RichText(
+          textAlign: TextAlign.left,
           text: TextSpan(
             recognizer: TapGestureRecognizer()
               ..onTap = () {
@@ -122,8 +124,11 @@ class _TimelinePostsState extends State<TimelinePosts> {
             children: [
               const TextSpan(text: " "),
               TextSpan(
-                  text: widget.post.content,
-                  style: const TextStyle(fontWeight: FontWeight.normal)),
+                text: widget.post.content,
+                style: const TextStyle(
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ],
           ),
         ),
