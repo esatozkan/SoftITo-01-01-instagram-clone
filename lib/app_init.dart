@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/data/constants/constants.dart';
 import 'package:instagram_clone/ui/providers/post_provider.dart';
 import 'package:instagram_clone/ui/view/screens/home_screen.dart';
+import 'package:instagram_clone/ui/view/screens/main_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +24,7 @@ class AppInit extends StatelessWidget {
       duration: 2000,
       screenFunction: () async {
         await context.read<PostProvider>().getListData();
-        return const HomeScreen();
+        return const MainScreen();
       },
       pageTransitionType: PageTransitionType.leftToRightWithFade,
     );

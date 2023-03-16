@@ -17,6 +17,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: size.width,
@@ -30,17 +31,21 @@ class _TimelinePostsState extends State<TimelinePosts> {
                   const SizedBox(
                     width: 10,
                   ),
-                  Image.asset(
-                    'assets/icons/profile.png',
-                    width: 35,
-                    height: 35,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.network(
+                      widget.post.media,
+                      width: 35,
+                      height: 35,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
-                    'Your story',
-                    style: TextStyle(color: Colors.white),
+                  Text(
+                    widget.post.username,
+                    style: const TextStyle(color: Colors.white),
                   )
                 ],
               ),

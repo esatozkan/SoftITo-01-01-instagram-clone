@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class DiscoverViewModel extends ChangeNotifier {
+class DiscoveryProvider extends ChangeNotifier {
   bool searchView = false;
-  bool canselView = false;
+  bool cancelView = false;
 
   changeSearchView() async {
     searchView = !searchView;
     if (searchView) {}
     await Future.delayed(Duration(milliseconds: 250));
-    searchView = !searchView;
+    cancelView = !cancelView;
     notifyListeners();
   }
 }
