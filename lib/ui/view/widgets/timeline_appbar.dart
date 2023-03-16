@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/chat_screen.dart';
 import 'custom_icon_button.dart';
 
 class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget {

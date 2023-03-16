@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import '/ui/view/screens/chat_screen.dart';
 import '/ui/providers/post_provider.dart';
 import '/ui/view/widgets/custom_bottom_nav_bar.dart';
 import '/ui/view/widgets/stories.dart';
@@ -35,14 +36,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: ListView(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  ...postProvider.posts
-                      .map((e) => TimelinePosts(post: e))
-                      .toList(),
-                ],
+              child: GestureDetector(
+                onHorizontalDragEnd: (details) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ChatScreen()));
+                },
+                child: ListView(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    ...postProvider.posts
+                        .map((e) => TimelinePosts(post: e))
+                        .toList(),
+                  ],
+                ),
               ),
             ),
           ],

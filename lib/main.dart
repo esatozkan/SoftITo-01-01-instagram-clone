@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
+        appBarTheme: AppBarTheme(backgroundColor: bgColor),
       ),
       home: const AppInit(),
     );

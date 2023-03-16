@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/reels_screen.dart';
 import '/ui/providers/home_provider.dart';
 import '/ui/view/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,7 @@ class MainScreen extends StatelessWidget {
       HomeScreen(),
       HomeScreen(),
       HomeScreen(),
-      HomeScreen(),
+      ReelsScreen(),
       ProfileScreen(),
     ];
     HomeProvider homeProvider = Provider.of<HomeProvider>(context);
