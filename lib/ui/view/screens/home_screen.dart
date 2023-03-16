@@ -8,10 +8,24 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: TimelineAppbar(),
-      body: Center(
-        child: StoriesWidgets(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 150,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 20,
+                itemBuilder: (context, index) => Stories(
+                    color: index == 0 ? Colors.green : Colors.yellow,
+                    image: "assets/profilePhoto.jpeg",
+                    name: "Your Story"),
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: CustomBottomNavBar(),
     );
