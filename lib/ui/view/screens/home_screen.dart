@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
     ];
     PostProvider postProvider = Provider.of<PostProvider>(context);
     return Scaffold(
+      appBar: TimelineAppbar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -50,6 +51,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }
