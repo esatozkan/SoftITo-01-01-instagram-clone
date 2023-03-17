@@ -6,9 +6,11 @@ class DiscoveryProvider extends ChangeNotifier {
 
   changeSearchView() async {
     searchView = !searchView;
-    if (searchView) {}
-    await Future.delayed(Duration(milliseconds: 250));
+    notifyListeners();
+    if (searchView) {
+      await Future.delayed(Duration(milliseconds: 250));
+    }
     cancelView = !cancelView;
     notifyListeners();
-  }
+  } 
 }
