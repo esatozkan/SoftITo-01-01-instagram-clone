@@ -1,7 +1,7 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/view/widgets/chat_dm.dart';
-import 'package:instagram_clone/ui/view/widgets/chat_search_bar.dart';
+import '/ui/view/widgets/chat_dm.dart';
+import '/ui/view/widgets/chat_search_bar.dart';
 
 import '../widgets/stories.dart';
 
@@ -61,55 +61,60 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const ChatSearchBar(),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 115,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 20,
-                  itemBuilder: (context, index) => Stories(
-                      color: index == 0 ? Colors.green : Colors.yellow,
-                      image: Faker().image.image(
-                          random: true,
-                          keywords: ["person"],
-                          width: 68,
-                          height: 68),
-                      name: Faker().person.firstName()),
+        child: GestureDetector(
+          onHorizontalDragEnd: (details) {
+            Navigator.pop(context);
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Text(
-                  'Messages',
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                const ChatSearchBar(),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              Flexible(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: dms,
+                SizedBox(
+                  height: 115,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 20,
+                    itemBuilder: (context, index) => Stories(
+                        color: index == 0 ? Colors.green : Colors.yellow,
+                        image: Faker().image.image(
+                            random: true,
+                            keywords: ["person"],
+                            width: 68,
+                            height: 68),
+                        name: Faker().person.firstName()),
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text(
+                    'Messages',
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                Flexible(
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: dms,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
