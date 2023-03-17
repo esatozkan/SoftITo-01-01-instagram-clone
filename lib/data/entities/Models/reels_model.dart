@@ -31,7 +31,8 @@ class ReelsModel {
       username: faker.person.name(),
       userAvatar: faker.image.image(
           random: true, keywords: ["avatar", "person", "user", "profile"]),
-      media: faker.image.image(random: true, keywords: ["bmw", "m5"]),
+      media: faker.image.image(
+          random: true, keywords: ["bmw", "m5"], width: 720, height: 1280),
       mediaType: "image",
       likeCount: faker.randomGenerator.integer(1000),
       commentCount: faker.randomGenerator.integer(1000),

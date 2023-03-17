@@ -1,5 +1,5 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/widgets/grid_post.dart';
 
 class ProfileTagGrid extends StatelessWidget {
   const ProfileTagGrid({super.key});
@@ -8,52 +8,13 @@ class ProfileTagGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 3,
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black),
-          ),
-          child: Image.network(
-            Faker().image.image(random: true),
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black),
-          ),
-          child: Image.network(
-            Faker().image.image(random: true),
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black),
-          ),
-          child: Image.network(
-            Faker().image.image(random: true),
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black),
-          ),
-          child: Image.network(
-            Faker().image.image(random: true),
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black),
-          ),
-          child: Image.network(
-            Faker().image.image(random: true),
-            fit: BoxFit.cover,
-          ),
-        ),
+      children: const <Widget>[
+        GridPost(),
+        GridPost(),
+        GridPost(),
+        GridPost(),
+        GridPost(),
+        GridPost(),
       ],
     );
   }
