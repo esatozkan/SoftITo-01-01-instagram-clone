@@ -19,6 +19,9 @@ class _ProfileTabBarState extends State<ProfileTabBar>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      print(_tabController.index);
+    });
   }
 
   @override
@@ -44,7 +47,10 @@ class _ProfileTabBarState extends State<ProfileTabBar>
             tabs: [
               Tab(
                 icon: Opacity(
-                  opacity: profileProvider.getTabIndex == 0 ? 1 : 0.5,
+                  opacity: profileProvider.getTabIndex == 0 ||
+                          _tabController.index == 0
+                      ? 1
+                      : 0.5,
                   child: Image.asset(
                     'assets/icons/photos.png',
                     width: 28,
@@ -54,7 +60,10 @@ class _ProfileTabBarState extends State<ProfileTabBar>
               ),
               Tab(
                 icon: Opacity(
-                  opacity: profileProvider.getTabIndex == 1 ? 1 : 0.5,
+                  opacity: profileProvider.getTabIndex == 1 ||
+                          _tabController.index == 1
+                      ? 1
+                      : 0.5,
                   child: Image.asset(
                     'assets/icons/tags.png',
                     width: 28,
