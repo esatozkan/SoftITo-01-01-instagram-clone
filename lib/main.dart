@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/app_init.dart';
-import 'package:instagram_clone/data/constants/constants.dart';
 
 import 'package:instagram_clone/ui/providers/discovery_provider.dart';
-
-import 'package:instagram_clone/ui/providers/home_provider.dart';
-
-import 'package:instagram_clone/ui/providers/post_provider.dart';
-import 'package:instagram_clone/ui/providers/story_provider.dart';
-import 'package:instagram_clone/ui/view/screens/home_screen.dart';
+import '/app_init.dart';
+import '/data/constants/constants.dart';
+import '/ui/providers/home_provider.dart';
+import '/ui/providers/post_provider.dart';
+import '/ui/providers/profile_provider.dart';
+import '/ui/providers/story_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,6 +16,8 @@ void main() {
       ListenableProvider(create: (_) => PostProvider()),
       ListenableProvider(create: (_) => DiscoveryProvider()),
       ListenableProvider(create: (_) => HomeProvider()),
+      ListenableProvider(create: (_) => ProfileProvider()),
+      ListenableProvider(create: (_) => DiscoveryProvider()),
     ],
     child: const MyApp(),
   ));
@@ -38,8 +38,9 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         hoverColor: Colors.transparent,
+        appBarTheme: AppBarTheme(backgroundColor: bgColor),
       ),
-      home: AppInit(),
+      home: const AppInit(),
     );
   }
 }

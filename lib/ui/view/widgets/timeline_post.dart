@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/data/constants/constants.dart';
-import 'package:instagram_clone/data/entities/Models/post_model.dart';
+import '/data/constants/constants.dart';
+import '/data/entities/Models/post_model.dart';
 
 class TimelinePosts extends StatefulWidget {
   final PostModel post;
@@ -105,7 +105,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
               onPressed: () {},
               icon: Image.asset(
                 "assets/icons/save.png",
-                width: 30,
+                width: 25,
               ),
             ),
           ],
@@ -113,7 +113,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
         Padding(
           padding: const EdgeInsets.only(left: 5, top: 2),
           child: Text(
-            widget.post.likeCount.toString(),
+            "${widget.post.likeCount.toString()} likes",
             textAlign: TextAlign.left,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white),

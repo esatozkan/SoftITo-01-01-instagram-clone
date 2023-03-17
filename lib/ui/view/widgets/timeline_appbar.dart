@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:instagram_clone/ui/view/screens/chat_screen.dart';
 import 'custom_icon_button.dart';
 
-class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget{
+class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget {
   const TimelineAppbar({super.key});
-
   @override
-  Size get preferredSize => Size.fromHeight(56);
+  Size get preferredSize => const Size.fromHeight(56);
+  @override
   Widget build(BuildContext context) {
-    return  AppBar(
+    return AppBar(
       backgroundColor: Colors.black,
       title: Padding(
         padding: const EdgeInsets.only(
@@ -19,16 +18,19 @@ class TimelineAppbar extends StatelessWidget implements PreferredSizeWidget{
           "assets/icons/instagram.png",
           height: 30,
           fit: BoxFit.fitHeight,
-          ),
+        ),
       ),
       actions: [
         CustomIconButton(
-          icon: 'assets/icons/story.png',
-          onPressed: (){},
-          ),
-          CustomIconButton(
+          icon: 'assets/icons/heart.png',
+          onPressed: () {},
+        ),
+        CustomIconButton(
             icon: "assets/icons/direct_messaging.png",
-             onPressed: (){}),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ChatScreen()));
+            }),
       ],
     );
   }
