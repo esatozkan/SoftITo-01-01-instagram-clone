@@ -8,7 +8,7 @@ class DiscoveryProvider extends ChangeNotifier {
     searchView = !searchView;
     notifyListeners();
     if (searchView) {
-      await Future.delayed(Duration(milliseconds: 250));
+      await Future.delayed(const Duration(milliseconds: 250));
     }
     cancelView = !cancelView;
     notifyListeners();
