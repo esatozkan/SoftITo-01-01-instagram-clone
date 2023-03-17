@@ -47,7 +47,7 @@ class _ProfileTabBarState extends State<ProfileTabBar>
             tabs: [
               Tab(
                 icon: Opacity(
-                  opacity: profileProvider.getTabIndex == 0 ||
+                  opacity: profileProvider.getTabIndex == 0 &&
                           _tabController.index == 0
                       ? 1
                       : 0.5,
@@ -60,7 +60,7 @@ class _ProfileTabBarState extends State<ProfileTabBar>
               ),
               Tab(
                 icon: Opacity(
-                  opacity: profileProvider.getTabIndex == 1 ||
+                  opacity: profileProvider.getTabIndex == 1 &&
                           _tabController.index == 1
                       ? 1
                       : 0.5,
