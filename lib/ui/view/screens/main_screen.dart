@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/post_create_screen.dart';
 
 import 'package:instagram_clone/ui/view/screens/reels_screen.dart';
 import '/ui/providers/home_provider.dart';
@@ -15,7 +16,7 @@ class MainScreen extends StatelessWidget {
     List<Widget> pages = const [
       HomeScreen(),
       DiscoveryScreen(),
-      HomeScreen(),
+      CreatePostScreen(),
       ReelsScreen(),
       ProfileScreen(),
     ];
