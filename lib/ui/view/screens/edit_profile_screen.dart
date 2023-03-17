@@ -35,74 +35,122 @@ class EditProfileScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Center(
-              child: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.white,
+        child: GestureDetector(
+          onPanUpdate: (details) {
+            if (details.delta.dx > 0) {
+              Navigator.pop(context);
+            }
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: RichText(
-                text: TextSpan(
-                  text: "Edit picture or avatar",
-                  style: const TextStyle(
-                    color: Colors.blue,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+              const Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                    text: "Edit picture or avatar",
+                    style: const TextStyle(
+                      color: Colors.blue,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    recognizer: TapGestureRecognizer()..onTap = () {},
                   ),
-                  recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: EditProfileTextField(
-                label: "Name",
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: EditProfileTextField(
-                label: "Username",
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: EditProfileTextField(
-                label: "Bio",
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: RichText(
-                text: TextSpan(
-                  text: 'Add Link',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: EditProfileTextField(
+                  label: "Name",
                 ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: EditProfileTextField(
+                  label: "Username",
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: EditProfileTextField(
+                  label: "Bio",
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: RichText(
+                  text: const TextSpan(
+                    text: 'Add Link',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 1,
+                color: Colors.white24,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, top: 10),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Switch to professional account',
+                    style: const TextStyle(color: Colors.blue, fontSize: 18),
+                    recognizer: TapGestureRecognizer()..onTap = () {},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 1,
+                color: Colors.white24,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, top: 10),
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Personal information settings',
+                    style: const TextStyle(color: Colors.blue, fontSize: 18),
+                    recognizer: TapGestureRecognizer()..onTap = () {},
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Divider(
+                thickness: 1,
+                color: Colors.white24,
+              ),
+            ],
+          ),
         ),
       ),
     );
