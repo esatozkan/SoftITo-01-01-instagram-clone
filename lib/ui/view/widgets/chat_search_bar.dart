@@ -32,6 +32,9 @@ class ChatSearchBar extends StatelessWidget {
                 cursorColor: Colors.white70,
                 decoration: InputDecoration(
                   border: InputBorder.none,
+                  hintText: "Search",
+                  alignLabelWithHint: true,
+                  hintStyle: TextStyle(color: Colors.white),
                   prefixIcon: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Row(
@@ -46,13 +49,6 @@ class ChatSearchBar extends StatelessWidget {
                             "assets/icons/discovery.png",
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Text(
-                          "Search",
-                          style: TextStyle(color: Colors.white70),
-                        )
                       ],
                     ),
                   ),
