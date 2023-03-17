@@ -1,6 +1,5 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-
 import '/ui/view/screens/chat_screen.dart';
 import '/ui/providers/post_provider.dart';
 import '/ui/view/widgets/custom_bottom_nav_bar.dart';

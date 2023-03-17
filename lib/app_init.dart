@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/providers/reels_provider.dart';
 import '/data/constants/constants.dart';
 import '/ui/providers/post_provider.dart';
 import '/ui/view/screens/main_screen.dart';
@@ -21,6 +22,7 @@ class AppInit extends StatelessWidget {
       duration: 2000,
       screenFunction: () async {
         await context.read<PostProvider>().getListData();
+        await context.read<ReelsProvider>().getReelsData();
         return const MainScreen();
       },
       pageTransitionType: PageTransitionType.leftToRightWithFade,
