@@ -15,7 +15,10 @@ class ReelsPost extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Image.network(reel.media),
+            child: Image.network(
+              reel.media,
+              fit: BoxFit.cover,
+            ),
           ),
           Column(
             children: [
