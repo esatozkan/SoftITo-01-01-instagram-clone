@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/widgets/edit_profile_text_field.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
@@ -10,7 +11,9 @@ class EditProfileScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: false,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Image.asset('assets/icons/cancel_icon.png'),
         ),
         title: const Text(
@@ -33,6 +36,7 @@ class EditProfileScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
               height: 20,
@@ -58,7 +62,46 @@ class EditProfileScreen extends StatelessWidget {
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: EditProfileTextField(
+                label: "Name",
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: EditProfileTextField(
+                label: "Username",
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: EditProfileTextField(
+                label: "Bio",
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: RichText(
+                text: TextSpan(
+                  text: 'Add Link',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
           ],
         ),
       ),
