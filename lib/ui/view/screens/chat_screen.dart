@@ -62,8 +62,10 @@ class ChatScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: GestureDetector(
-          onHorizontalDragEnd: (details) {
-            Navigator.pop(context);
+          onPanUpdate: (details) {
+            if (details.delta.dx > 0) {
+              Navigator.pop(context);
+            }
           },
           child: SingleChildScrollView(
             child: Column(

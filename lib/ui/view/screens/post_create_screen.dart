@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:instagram_clone/ui/view/widgets/create_post_appbar.dart';
+import '/ui/view/widgets/create_post_appbar.dart';
+import '/ui/view/widgets/custom_bottom_nav_bar.dart';
 
 import '../widgets/create_post_camera.dart';
 import '../widgets/create_post_gallery.dart';
 
-class CreatePostScreen extends StatelessWidget{
+class CreatePostScreen extends StatelessWidget {
   const CreatePostScreen({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +15,16 @@ class CreatePostScreen extends StatelessWidget{
       body: Column(
         children: [
           SingleChildScrollView(
-            child: Column(children: [
-              PostCreateCamera(),
-            ],
+            child: Column(
+              children: const [
+                PostCreateCamera(),
+              ],
             ),
           ),
-          PostCreateGallery(),
+          const PostCreateGallery(),
         ],
       ),
+      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }
