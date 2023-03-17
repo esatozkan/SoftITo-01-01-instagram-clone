@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/edit_profile_screen.dart';
 import '/data/constants/constants.dart';
 
 class ProfileTop extends StatelessWidget {
@@ -132,7 +133,12 @@ class ProfileTop extends StatelessWidget {
                     minimumSize: MaterialStatePropertyAll(
                         Size(size.width * 0.44, size.width * 0.085)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EditProfileScreen()));
+                  },
                   child: const Text('Edit Profile'),
                 ),
                 ElevatedButton(
