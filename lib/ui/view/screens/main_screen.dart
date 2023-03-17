@@ -4,6 +4,7 @@ import 'package:instagram_clone/ui/view/screens/reels_screen.dart';
 import '/ui/providers/home_provider.dart';
 import '/ui/view/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
+import 'discovery_screen.dart';
 import 'home_screen.dart';
 
 class MainScreen extends StatelessWidget {
