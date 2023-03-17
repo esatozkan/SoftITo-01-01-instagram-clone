@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTagGrid extends StatelessWidget {
@@ -10,27 +11,47 @@ class ProfileTagGrid extends StatelessWidget {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
+            border: Border.all(width: 1, color: Colors.black),
+          ),
+          child: Image.network(
+            Faker().image.image(random: true),
+            fit: BoxFit.cover,
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
+            border: Border.all(width: 1, color: Colors.black),
+          ),
+          child: Image.network(
+            Faker().image.image(random: true),
+            fit: BoxFit.cover,
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
+            border: Border.all(width: 1, color: Colors.black),
+          ),
+          child: Image.network(
+            Faker().image.image(random: true),
+            fit: BoxFit.cover,
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
+            border: Border.all(width: 1, color: Colors.black),
+          ),
+          child: Image.network(
+            Faker().image.image(random: true),
+            fit: BoxFit.cover,
           ),
         ),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.white),
+            border: Border.all(width: 1, color: Colors.black),
+          ),
+          child: Image.network(
+            Faker().image.image(random: true),
+            fit: BoxFit.cover,
           ),
         ),
       ],
