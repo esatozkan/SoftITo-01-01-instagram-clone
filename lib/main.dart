@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:instagram_clone/ui/providers/discovery_provider.dart';
 import '/app_init.dart';
 import '/data/constants/constants.dart';
@@ -13,6 +14,7 @@ void main() {
     providers: [
       ListenableProvider(create: (_) => StoryProvider()),
       ListenableProvider(create: (_) => PostProvider()),
+      ListenableProvider(create: (_) => DiscoveryProvider()),
       ListenableProvider(create: (_) => HomeProvider()),
       ListenableProvider(create: (_) => ProfileProvider()),
       ListenableProvider(create: (_) => DiscoveryProvider()),

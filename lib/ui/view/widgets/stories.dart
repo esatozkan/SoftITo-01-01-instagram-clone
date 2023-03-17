@@ -24,6 +24,7 @@ class _StoriesState extends State<Stories> {
     StoryProvider storyProvider = Provider.of<StoryProvider>(context);
     return SizedBox(
       child: Padding(
+
         padding: const EdgeInsets.only(left: 8.0),
         child: Column(
           children: [

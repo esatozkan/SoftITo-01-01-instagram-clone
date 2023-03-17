@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:instagram_clone/ui/view/screens/reels_screen.dart';
 import '/ui/providers/home_provider.dart';
 import '/ui/view/screens/profile_screen.dart';
@@ -12,7 +13,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> pages = const [
       HomeScreen(),
-      HomeScreen(),
+      DiscoveryScreen(),
       HomeScreen(),
       ReelsScreen(),
       ProfileScreen(),
