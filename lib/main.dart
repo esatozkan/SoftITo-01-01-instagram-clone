@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:instagram_clone/ui/providers/discovery_provider.dart';
+import '/ui/providers/chat_provider.dart';
+import '/ui/providers/discovery_provider.dart';
 import '/app_init.dart';
 import '/data/constants/constants.dart';
 import '/ui/providers/home_provider.dart';
@@ -18,6 +18,7 @@ void main() {
       ListenableProvider(create: (_) => HomeProvider()),
       ListenableProvider(create: (_) => ProfileProvider()),
       ListenableProvider(create: (_) => DiscoveryProvider()),
+      ListenableProvider(create: (_) => ChatProvider()),
     ],
     child: const MyApp(),
   ));
