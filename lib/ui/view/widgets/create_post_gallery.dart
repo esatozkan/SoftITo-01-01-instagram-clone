@@ -1,8 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:instagram_clone/ui/view/widgets/custom_icon_button.dart';
+import 'package:instagram_clone/data/constants/constants.dart';
 
 class PostCreateGallery extends StatelessWidget {
   const PostCreateGallery({super.key});
@@ -16,8 +14,8 @@ class PostCreateGallery extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 10),
                 child: Text(
                   "Gallery",
                   style: TextStyle(
@@ -35,7 +33,7 @@ class PostCreateGallery extends StatelessWidget {
                   height: 10,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 icon: Image.asset("assets/icons/multi_choice.png"),
                 onPressed: () {},
@@ -48,61 +46,117 @@ class PostCreateGallery extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 200,
+          height: 280,
           child: GridView.count(
             crossAxisCount: 4,
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-              Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-              Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
-              ),
-              Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.all(1),
-                child: Image.network(Faker().image.image(random: true),fit: BoxFit.fill,),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: bgColor),
+                ),
+                child: Image.network(
+                  Faker().image.image(random: true),
+                  fit: BoxFit.cover,
+                ),
               ),
             ],
           ),

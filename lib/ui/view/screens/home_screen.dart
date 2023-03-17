@@ -14,7 +14,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     PostProvider postProvider = Provider.of<PostProvider>(context);
     return Scaffold(
       appBar: const TimelineAppbar(),
@@ -39,11 +38,17 @@ class HomeScreen extends StatelessWidget {
             ),
             Flexible(
               child: GestureDetector(
-                onHorizontalDragEnd: (details) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ChatScreen()));
+                onPanUpdate: (details) {
+                  // Swiping in right direction.
+                  if (details.delta.dx > 0) {}
+
+                  // Swiping in left direction.
+                  if (details.delta.dx < 0) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ChatScreen()));
+                  }
                 },
                 child: ListView(
                   shrinkWrap: true,
