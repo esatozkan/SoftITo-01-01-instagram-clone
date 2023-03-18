@@ -4,7 +4,14 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
 class PostPreview extends StatelessWidget {
-  const PostPreview({super.key});
+  final String postImg;
+  final String avatar;
+  final String username;
+  const PostPreview(
+      {super.key,
+      required this.postImg,
+      required this.avatar,
+      required this.username});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +38,7 @@ class PostPreview extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Image.network(
-                      Faker().image.image(random: true),
+                      avatar,
                       width: 35,
                       height: 35,
                       fit: BoxFit.cover,
@@ -41,7 +48,7 @@ class PostPreview extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    Faker().internet.userName(),
+                    username,
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
@@ -52,7 +59,7 @@ class PostPreview extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.95,
             height: MediaQuery.of(context).size.height * 0.35,
             child: Image.network(
-              Faker().image.image(random: true),
+              postImg,
               fit: BoxFit.cover,
             ),
           ),

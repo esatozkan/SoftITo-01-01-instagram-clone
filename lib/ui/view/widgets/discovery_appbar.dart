@@ -6,7 +6,7 @@ class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
   const DiscoveryAppbar({super.key});
 
   @override
-  Size get preferredSize => Size.fromHeight(65);
+  Size get preferredSize => const Size.fromHeight(65);
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -20,18 +20,18 @@ class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
                     (context.watch<DiscoveryProvider>().searchView
                         ? 0.75
                         : 0.9),
-                duration: Duration(milliseconds: 250),
+                duration: const Duration(milliseconds: 250),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.white12,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   child: TextField(
                     onTap: () {
                       context.read<DiscoveryProvider>().changeSearchView();
                     },
-                    style: TextStyle(color: Colors.white70),
+                    style: const TextStyle(color: Colors.white70),
                     cursorColor: Colors.white70,
                     decoration: InputDecoration(
                         border: InputBorder.none,
@@ -51,7 +51,7 @@ class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            if (context.watch<DiscoveryProvider>().cancelView) Spacer(),
+            if (context.watch<DiscoveryProvider>().cancelView) const Spacer(),
             if (context.watch<DiscoveryProvider>().cancelView)
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -59,7 +59,7 @@ class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
                   onTap: () {
                     context.read<DiscoveryProvider>().changeSearchView();
                   },
-                  child: FittedBox(
+                  child: const FittedBox(
                     child: Text(
                       "Cancel",
                       overflow: TextOverflow.fade,
