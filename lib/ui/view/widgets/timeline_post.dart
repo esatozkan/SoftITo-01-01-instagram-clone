@@ -13,6 +13,7 @@ class TimelinePosts extends StatefulWidget {
 
 class _TimelinePostsState extends State<TimelinePosts> {
   bool _isLiked = false;
+  bool _isSaved = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -102,11 +103,36 @@ class _TimelinePostsState extends State<TimelinePosts> {
             ),
             const Spacer(),
             IconButton(
-              onPressed: () {},
-              icon: Image.asset(
-                "assets/icons/save.png",
-                width: 25,
-              ),
+              onPressed: () {
+                setState(() {
+                  _isSaved = !_isSaved;
+                });
+
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    backgroundColor: bgColor,
+                    content:
+                        const Text('You saved this post to your collection!'),
+                    action: SnackBarAction(
+                      label: 'Undo',
+                      onPressed: () {
+                        setState(() {
+                          _isSaved = !_isSaved;
+                        });
+                      },
+                    ),
+                  ),
+                );
+              },
+              icon: _isSaved == true
+                  ? Image.asset(
+                      "assets/icons/save_pressed.png",
+                      width: 25,
+                    )
+                  : Image.asset(
+                      "assets/icons/save.png",
+                      width: 25,
+                    ),
             ),
           ],
         ),

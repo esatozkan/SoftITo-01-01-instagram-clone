@@ -13,6 +13,8 @@ class ReelsModel {
   int commentCount;
   String content;
   String firstName;
+  bool isFollowed = false;
+  bool isLiked = false;
   ReelsModel({
     required this.id,
     required this.username,
