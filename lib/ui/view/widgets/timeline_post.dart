@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/widgets/post_preview.dart';
 import '/data/constants/constants.dart';
 import '/data/entities/Models/post_model.dart';
 
@@ -64,9 +65,16 @@ class _TimelinePostsState extends State<TimelinePosts> {
             ],
           ),
         ),
-        Image.network(
-          widget.post.media,
-          fit: BoxFit.cover,
+        GestureDetector(
+          onLongPress: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) => const PostPreview());
+          },
+          child: Image.network(
+            widget.post.media,
+            fit: BoxFit.cover,
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
