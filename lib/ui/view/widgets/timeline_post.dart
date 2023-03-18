@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/view/widgets/post_preview.dart';
+import '/ui/view/screens/comments_screen.dart';
+import '/ui/view/widgets/post_preview.dart';
 import '/data/constants/constants.dart';
 import '/data/entities/Models/post_model.dart';
 
@@ -69,7 +70,11 @@ class _TimelinePostsState extends State<TimelinePosts> {
           onLongPress: () {
             showDialog(
                 context: context,
-                builder: (BuildContext context) => const PostPreview());
+                builder: (BuildContext context) => PostPreview(
+                      postImg: widget.post.media,
+                      avatar: widget.post.userAvatar,
+                      username: widget.post.username,
+                    ));
           },
           child: Image.network(
             widget.post.media,
@@ -96,7 +101,14 @@ class _TimelinePostsState extends State<TimelinePosts> {
                     ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => CommentScreen(
+                              post: widget.post,
+                            )));
+              },
               icon: Image.asset(
                 "assets/icons/comment.png",
                 width: 30,

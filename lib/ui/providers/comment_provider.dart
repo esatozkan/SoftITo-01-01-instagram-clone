@@ -1,15 +1,15 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import '/data/entities/Models/reels_model.dart';
+import '/data/entities/Models/comment_model.dart';
 
-class ReelsProvider with ChangeNotifier {
-  List<ReelsModel> reels = [];
+class CommentProvider with ChangeNotifier {
+  List<CommentModel> comments = [];
 
-  Future getReelsData() async {
+  Future getCommentsData() async {
     await Future.delayed(const Duration(milliseconds: 500));
     int count = Faker().randomGenerator.integer(100, min: 30);
     for (var i = 0; i < count; i++) {
-      reels.add(ReelsModel.fake());
+      comments.add(CommentModel.fake());
     }
     notifyListeners();
   }
