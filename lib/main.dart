@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/ui/providers/comment_provider.dart';
 import '/ui/providers/reels_provider.dart';
 import '/ui/providers/chat_provider.dart';
 import '/ui/providers/discovery_provider.dart';
@@ -21,6 +22,7 @@ void main() {
       ListenableProvider(create: (_) => DiscoveryProvider()),
       ListenableProvider(create: (_) => ChatProvider()),
       ListenableProvider(create: (_) => ReelsProvider()),
+      ListenableProvider(create: (_) => CommentProvider()),
     ],
     child: const MyApp(),
   ));

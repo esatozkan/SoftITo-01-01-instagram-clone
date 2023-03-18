@@ -1,14 +1,38 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/view/widgets/comment_bottom_bar.dart';
+import 'package:provider/provider.dart';
+import '/data/entities/Models/comment_model.dart';
+import '/data/entities/Models/post_model.dart';
+import '/ui/providers/comment_provider.dart';
+import '/ui/view/widgets/comment_bottom_bar.dart';
 import '/ui/view/widgets/comment.dart';
-import '../../../data/constants/constants.dart';
+import '/data/constants/constants.dart';
 
-class CommentScreen extends StatelessWidget {
-  const CommentScreen({super.key});
+class CommentScreen extends StatefulWidget {
+  final PostModel post;
+  const CommentScreen({super.key, required this.post});
+
+  @override
+  State<CommentScreen> createState() => _CommentScreenState();
+}
+
+class _CommentScreenState extends State<CommentScreen> {
+  late TextEditingController textEditingController;
+  @override
+  void initState() {
+    textEditingController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    CommentProvider commentProvider = Provider.of<CommentProvider>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
@@ -18,7 +42,19 @@ class CommentScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              setState(() {});
+              commentProvider.comments.add(CommentModel(
+                id: Faker().randomGenerator.integer(1000),
+                username: Faker().internet.userName(),
+                userAvatar: Faker().image.image(
+                    random: true,
+                    keywords: ["avatar", "person", "user", "profile"]),
+                content: textEditingController.text,
+                firstName: Faker().person.firstName(),
+                hour: Faker().randomGenerator.integer(24, min: 1),
+              ));
+            },
             icon: Image.asset(
               'assets/icons/dm.png',
               width: 30,
@@ -55,13 +91,7 @@ class CommentScreen extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.network(
-                            Faker().image.image(keywords: [
-                              "profile",
-                              "picture",
-                              "selfie",
-                              "person",
-                              "real person"
-                            ]),
+                            widget.post.userAvatar,
                             width: 40,
                             height: 40,
                             fit: BoxFit.cover,
@@ -73,7 +103,7 @@ class CommentScreen extends StatelessWidget {
                       width: 20,
                     ),
                     Text(
-                      Faker().internet.userName(),
+                      widget.post.username,
                       style: const TextStyle(
                         color: Colors.white,
                       ),
@@ -85,13 +115,14 @@ class CommentScreen extends StatelessWidget {
                   child: RichText(
                     textAlign: TextAlign.left,
                     text: TextSpan(
-                      text: Faker()
-                          .lorem
-                          .sentences(10)
-                          .toString()
-                          .replaceAll("[", "")
-                          .replaceAll("]", "")
-                          .replaceAll(",", ""),
+                      // text: Faker()
+                      //     .lorem
+                      //     .sentences(10)
+                      //     .toString()
+                      //     .replaceAll("[", "")
+                      //     .replaceAll("]", "")
+                      //     .replaceAll(",", ""),
+                      text: widget.post.content,
                     ),
                   ),
                 ),
@@ -103,13 +134,16 @@ class CommentScreen extends StatelessWidget {
                   color: Colors.white24,
                 ),
                 Flexible(
-                  child: ListView.builder(
-                    itemCount: 15,
+                  child: ListView(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return const Comment();
-                    },
+                    children: [
+                      ...commentProvider.comments
+                          .map((e) => Comment(
+                                commentModel: e,
+                              ))
+                          .toList()
+                    ],
                   ),
                 )
               ],
@@ -117,7 +151,9 @@ class CommentScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const CommentBottomBar(),
+      bottomNavigationBar: CommentBottomBar(
+        textEditingController: textEditingController,
+      ),
     );
   }
 }

@@ -102,8 +102,12 @@ class _TimelinePostsState extends State<TimelinePosts> {
             ),
             IconButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const CommentScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => CommentScreen(
+                              post: widget.post,
+                            )));
               },
               icon: Image.asset(
                 "assets/icons/comment.png",

@@ -1,10 +1,11 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/data/entities/Models/comment_model.dart';
 import '../../../data/constants/constants.dart';
 
 class Comment extends StatefulWidget {
-  const Comment({super.key});
+  final CommentModel commentModel;
+  const Comment({super.key, required this.commentModel});
 
   @override
   State<Comment> createState() => _CommentState();
@@ -30,13 +31,7 @@ class _CommentState extends State<Comment> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
                 child: Image.network(
-                  Faker().image.image(keywords: [
-                    "profile",
-                    "picture",
-                    "selfie",
-                    "person",
-                    "real person"
-                  ]),
+                  widget.commentModel.userAvatar,
                   width: 34,
                   height: 34,
                   fit: BoxFit.cover,
@@ -53,14 +48,14 @@ class _CommentState extends State<Comment> {
               Row(
                 children: [
                   Text(
-                    Faker().internet.userName(),
+                    widget.commentModel.username,
                     style: const TextStyle(color: Colors.white),
                   ),
                   const SizedBox(
                     width: 5,
                   ),
                   Text(
-                    "${Faker().randomGenerator.integer(24, min: 1)}h",
+                    "${widget.commentModel.hour}h",
                     style: const TextStyle(
                       color: Colors.white54,
                     ),
@@ -73,13 +68,7 @@ class _CommentState extends State<Comment> {
               Row(
                 children: [
                   Text(
-                    Faker()
-                        .lorem
-                        .words(3)
-                        .toString()
-                        .replaceAll("[", "")
-                        .replaceAll("]", "")
-                        .replaceAll(",", ""),
+                    widget.commentModel.content,
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
