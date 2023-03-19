@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/providers/discovery_provider.dart';
+import '/ui/providers/discovery_provider.dart';
 import 'package:provider/provider.dart';
 
 class DiscoveryAppbar extends StatelessWidget implements PreferredSizeWidget {
