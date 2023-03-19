@@ -197,13 +197,15 @@ class _TimelinePostsState extends State<TimelinePosts> {
                                 ),
                               ],
                             ),
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: 20,
-                              itemBuilder: (context, index) {
-                                return SendPost();
-                              },
+                            Flexible(
+                              child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                                itemCount: 20,
+                                itemBuilder: (context, index) {
+                                  return const SendPost();
+                                },
+                              ),
                             )
                           ],
                         ),
