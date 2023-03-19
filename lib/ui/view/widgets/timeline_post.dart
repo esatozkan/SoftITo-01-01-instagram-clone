@@ -54,14 +54,139 @@ class _TimelinePostsState extends State<TimelinePosts> {
                 ],
               ),
               Row(
-                children: const [
-                  Icon(
-                    Icons.more_vert,
-                    color: Colors.white,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      showModalBottomSheet<void>(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          useSafeArea: true,
+                          backgroundColor: Colors.grey.shade900,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return FractionallySizedBox(
+                              heightFactor: 0.85,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Report...',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Block',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'About this account',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Restrict',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Hide your story',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Copy profile URL',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Show QR Code',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Text(
+                                      'Share This Profile',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                ],
+                              ),
+                            );
+                          });
+                    },
+                    icon: const Icon(
+                      Icons.more_vert,
+                      color: Colors.white,
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
-                  )
                 ],
               ),
             ],
@@ -118,6 +243,9 @@ class _TimelinePostsState extends State<TimelinePosts> {
             IconButton(
               onPressed: () {
                 showModalBottomSheet<void>(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                   backgroundColor: Colors.grey.shade900,
                   context: context,
                   useSafeArea: true,
@@ -192,7 +320,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
                               height: 50,
                               child: Row(
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 25,
                                   ),
                                   SizedBox(
