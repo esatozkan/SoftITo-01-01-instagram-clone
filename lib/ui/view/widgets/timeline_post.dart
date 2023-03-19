@@ -140,25 +140,6 @@ class _TimelinePostsState extends State<TimelinePosts> {
                               height: 20,
                             ),
                             Row(
-                              children: [
-                                const SizedBox(
-                                  width: 25,
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    widget.post.media,
-                                    width: 50,
-                                    height: 50,
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
@@ -205,6 +186,40 @@ class _TimelinePostsState extends State<TimelinePosts> {
                                 itemBuilder: (context, index) {
                                   return const SendPost();
                                 },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 25,
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.88,
+                                    height: 35,
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          'Send',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        )),
+                                  ),
+                                ],
                               ),
                             )
                           ],

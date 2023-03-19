@@ -21,15 +21,11 @@ class _ReelsScreenState extends State<ReelsScreen> {
     return Scaffold(
       appBar: const ReelsAppBar(),
       body: SafeArea(
-        child: Stack(
+        child: PageView(
+          scrollDirection: Axis.vertical,
+          controller: _pageController,
           children: [
-            PageView(
-              scrollDirection: Axis.vertical,
-              controller: _pageController,
-              children: [
-                ...reelsProvider.reels.map((e) => ReelsPost(reel: e)).toList(),
-              ],
-            ),
+            ...reelsProvider.reels.map((e) => ReelsPost(reel: e)).toList(),
           ],
         ),
       ),
