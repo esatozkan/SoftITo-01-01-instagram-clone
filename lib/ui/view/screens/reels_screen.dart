@@ -1,10 +1,8 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/providers/reels_provider.dart';
-import 'package:instagram_clone/ui/view/widgets/reels_app_bar.dart';
-import 'package:instagram_clone/ui/view/widgets/reels_post.dart';
+import '/ui/providers/reels_provider.dart';
+import '/ui/view/widgets/reels_app_bar.dart';
+import '/ui/view/widgets/reels_post.dart';
 import 'package:provider/provider.dart';
-import '../../../data/constants/constants.dart';
 import '/ui/view/widgets/custom_bottom_nav_bar.dart';
 
 class ReelsScreen extends StatefulWidget {
@@ -23,15 +21,11 @@ class _ReelsScreenState extends State<ReelsScreen> {
     return Scaffold(
       appBar: const ReelsAppBar(),
       body: SafeArea(
-        child: Stack(
+        child: PageView(
+          scrollDirection: Axis.vertical,
+          controller: _pageController,
           children: [
-            PageView(
-              scrollDirection: Axis.vertical,
-              controller: _pageController,
-              children: [
-                ...reelsProvider.reels.map((e) => ReelsPost(reel: e)).toList()
-              ],
-            ),
+            ...reelsProvider.reels.map((e) => ReelsPost(reel: e)).toList(),
           ],
         ),
       ),

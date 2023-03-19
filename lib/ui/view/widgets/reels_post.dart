@@ -3,10 +3,17 @@ import 'package:flutter/material.dart';
 import '/data/entities/Models/reels_model.dart';
 import '../../../data/constants/constants.dart';
 
-class ReelsPost extends StatelessWidget {
+class ReelsPost extends StatefulWidget {
   final ReelsModel reel;
   const ReelsPost({super.key, required this.reel});
 
+  @override
+  State<ReelsPost> createState() => _ReelsPostState();
+}
+
+class _ReelsPostState extends State<ReelsPost> {
+  bool _isFollowed = false;
+  bool _isLiked = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,7 +23,7 @@ class ReelsPost extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Image.network(
-              reel.media,
+              widget.reel.media,
               fit: BoxFit.cover,
             ),
           ),
@@ -30,15 +37,27 @@ class ReelsPost extends StatelessWidget {
                   const Spacer(),
                   Column(
                     children: [
-                      Image.asset(
-                        "assets/icons/heart.png",
-                        width: 30,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _isLiked = !_isLiked;
+                          });
+                        },
+                        child: _isLiked == false
+                            ? Image.asset(
+                                "assets/icons/heart.png",
+                                width: 30,
+                              )
+                            : Image.asset(
+                                "assets/icons/heart_pressed.png",
+                                width: 30,
+                              ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "${reel.likeCount}",
+                        "${widget.reel.likeCount}",
                         style: const TextStyle(color: Colors.white),
                       )
                     ],
@@ -64,7 +83,7 @@ class ReelsPost extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "${reel.commentCount}",
+                        "${widget.reel.commentCount}",
                         style: const TextStyle(color: Colors.white),
                       )
                     ],
@@ -91,7 +110,7 @@ class ReelsPost extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Image.network(
-                          reel.userAvatar,
+                          widget.reel.userAvatar,
                           width: 40,
                           height: 40,
                           fit: BoxFit.cover,
@@ -103,7 +122,7 @@ class ReelsPost extends StatelessWidget {
                     width: 15,
                   ),
                   Text(
-                    reel.firstName,
+                    widget.reel.firstName,
                     style: const TextStyle(color: Colors.white),
                   ),
                   const SizedBox(
@@ -115,14 +134,26 @@ class ReelsPost extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                             side: const BorderSide(
                                 width: 1, color: Colors.white)),
-                        onPressed: () {},
-                        child: const Text(
-                          'Follow',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Colors.white),
-                        )),
+                        onPressed: () {
+                          setState(() {
+                            _isFollowed = !_isFollowed;
+                          });
+                        },
+                        child: _isFollowed == false
+                            ? const Text(
+                                'Follow',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              )
+                            : const Text(
+                                'Following',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              )),
                   ),
                   const Spacer(),
                   Column(
@@ -147,7 +178,7 @@ class ReelsPost extends StatelessWidget {
                     width: 15,
                   ),
                   Text(
-                    reel.username,
+                    widget.reel.username,
                     style: const TextStyle(color: Colors.white, fontSize: 17),
                   ),
                   const Spacer(),
@@ -181,7 +212,7 @@ class ReelsPost extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.network(
-                            reel.userAvatar,
+                            widget.reel.userAvatar,
                             width: 24,
                             height: 24,
                             fit: BoxFit.cover,
@@ -196,7 +227,7 @@ class ReelsPost extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.network(
-                              reel.userAvatar,
+                              widget.reel.userAvatar,
                               width: 24,
                               height: 24,
                               fit: BoxFit.cover,
