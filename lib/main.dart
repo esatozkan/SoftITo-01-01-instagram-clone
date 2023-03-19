@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/chat_detail_screen.dart';
 import '/ui/providers/reels_provider.dart';
 import '/ui/providers/chat_provider.dart';
 import '/ui/providers/discovery_provider.dart';

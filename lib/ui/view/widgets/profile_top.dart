@@ -17,75 +17,82 @@ class ProfileTop extends StatelessWidget {
       color: Colors.black,
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CircleAvatar(
-                radius: 42,
-                backgroundColor: Colors.green,
-                child: CircleAvatar(
-                  radius: 39,
-                  backgroundColor: bgColor,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      faker.image.image(keywords: [
-                        "profile",
-                        "picture",
-                        "selfie",
-                        "person",
-                        "real person"
-                      ]),
-                      width: 68,
-                      height: 68,
-                      fit: BoxFit.cover,
+          Flexible(
+            flex: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  radius: 42,
+                  backgroundColor: Colors.green,
+                  child: CircleAvatar(
+                    radius: 39,
+                    backgroundColor: bgColor,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.network(
+                        faker.image.image(keywords: [
+                          "profile",
+                          "picture",
+                          "selfie",
+                          "person",
+                          "real person"
+                        ]),
+                        width: 68,
+                        height: 68,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  Text(
-                    faker.randomGenerator.integer(50, min: 3).toString(),
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.white),
-                  ),
-                  const Text(
-                    'Post',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Text(faker.randomGenerator.integer(1000, min: 100).toString(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.white,
-                      )),
-                  const Text(
-                    'Followers',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Text(faker.randomGenerator.integer(1000, min: 80).toString(),
+                Column(
+                  children: [
+                    Text(
+                      faker.randomGenerator.integer(50, min: 3).toString(),
                       style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: Colors.white)),
-                  const Text(
-                    'Following',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  )
-                ],
-              ),
-            ],
+                          color: Colors.white),
+                    ),
+                    const Text(
+                      'Post',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                        faker.randomGenerator
+                            .integer(1000, min: 100)
+                            .toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.white,
+                        )),
+                    const Text(
+                      'Followers',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                        faker.randomGenerator.integer(1000, min: 80).toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white)),
+                    const Text(
+                      'Following',
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5),
