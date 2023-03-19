@@ -33,7 +33,197 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         CustomIconButton(
           icon: "assets/icons/more.png",
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet<void>(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              useSafeArea: true,
+              backgroundColor: Colors.grey.shade900,
+              context: context,
+              builder: (BuildContext context) {
+                return FractionallySizedBox(
+                  heightFactor: 0.75,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/settings.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Settings',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/activity.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Your Activity',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/archive.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Archive',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/qr.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'QR code',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/save.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Saved',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/close_friends.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Close Friends',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 25,
+                          ),
+                          Image.asset(
+                            'assets/icons/favorites.png',
+                            width: 18,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Favorites',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
         ),
       ],
     );

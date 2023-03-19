@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/view/screens/target_profile.dart';
+import '/ui/view/screens/target_profile.dart';
 import '/ui/view/widgets/send_post.dart';
 import '/ui/view/screens/comments_screen.dart';
 import '/ui/view/widgets/post_preview.dart';
@@ -68,129 +68,130 @@ class _TimelinePostsState extends State<TimelinePosts> {
                   IconButton(
                     onPressed: () {
                       showModalBottomSheet<void>(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          useSafeArea: true,
-                          backgroundColor: Colors.grey.shade900,
-                          context: context,
-                          builder: (BuildContext context) {
-                            return FractionallySizedBox(
-                              heightFactor: 0.85,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  SizedBox(
-                                    height: 25,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        useSafeArea: true,
+                        backgroundColor: Colors.grey.shade900,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return FractionallySizedBox(
+                            heightFactor: 0.85,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Report...',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Report...',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Block',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
-                                    height: 25,
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'About this account',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Block',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Restrict',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
-                                    height: 25,
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Hide your story',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'About this account',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Copy profile URL',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
-                                    height: 25,
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Show QR Code',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Restrict',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 25),
+                                  child: Text(
+                                    'Share This Profile',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Hide your story',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Copy profile URL',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Show QR Code',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 25),
-                                    child: Text(
-                                      'Share This Profile',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 25,
-                                  ),
-                                ],
-                              ),
-                            );
-                          });
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
                     },
                     icon: const Icon(
                       Icons.more_vert,
