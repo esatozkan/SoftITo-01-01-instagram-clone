@@ -1,7 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/providers/comment_provider.dart';
-import 'package:instagram_clone/ui/providers/reels_provider.dart';
+import '/ui/providers/comment_provider.dart';
+import '/ui/providers/reels_provider.dart';
+import '/ui/view/screens/login_screen.dart';
 import '/data/constants/constants.dart';
 import '/ui/providers/post_provider.dart';
 import '/ui/view/screens/main_screen.dart';
@@ -25,7 +26,7 @@ class AppInit extends StatelessWidget {
         await context.read<PostProvider>().getListData();
         context.read<ReelsProvider>().getReelsData();
         context.read<CommentProvider>().getCommentsData();
-        return const MainScreen();
+        return const LoginScreen();
       },
       pageTransitionType: PageTransitionType.leftToRightWithFade,
     );
