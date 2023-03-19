@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import '/ui/view/widgets/send_post.dart';
 import '/ui/view/screens/comments_screen.dart';
 import '/ui/view/widgets/post_preview.dart';
 import '/data/constants/constants.dart';
@@ -115,7 +116,119 @@ class _TimelinePostsState extends State<TimelinePosts> {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet<void>(
+                  backgroundColor: Colors.grey.shade900,
+                  context: context,
+                  useSafeArea: true,
+                  builder: (BuildContext context) {
+                    return SingleChildScrollView(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                          ),
+                          color: Colors.grey.shade900,
+                        ),
+                        height: 400,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 40,
+                                  child: AnimatedContainer(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.88,
+                                    duration: const Duration(milliseconds: 250),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: Colors.white12,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: TextField(
+                                        onTap: () {},
+                                        style: const TextStyle(
+                                            color: Colors.white70),
+                                        cursorColor: Colors.white70,
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          prefixIcon: Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: Opacity(
+                                              opacity: 0.7,
+                                              child: Image.asset(
+                                                "assets/icons/discovery.png",
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Flexible(
+                              child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                                itemCount: 20,
+                                itemBuilder: (context, index) {
+                                  return const SendPost();
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 25,
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.88,
+                                    height: 35,
+                                    child: ElevatedButton(
+                                        style: ButtonStyle(
+                                          shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          'Send',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
               icon: Image.asset(
                 "assets/icons/dm.png",
                 width: 30,
@@ -170,10 +283,7 @@ class _TimelinePostsState extends State<TimelinePosts> {
           child: RichText(
             textAlign: TextAlign.left,
             text: TextSpan(
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  print(widget.post.username);
-                },
+              recognizer: TapGestureRecognizer()..onTap = () {},
               text: widget.post.username,
               style: const TextStyle(
                   color: Colors.white, fontWeight: FontWeight.bold),

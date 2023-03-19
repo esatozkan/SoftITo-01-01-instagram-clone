@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '/data/entities/Models/comment_model.dart';
 import '/data/entities/Models/post_model.dart';
 import '/ui/providers/comment_provider.dart';
-import '/ui/view/widgets/comment_bottom_bar.dart';
 import '/ui/view/widgets/comment.dart';
 import '/data/constants/constants.dart';
 
@@ -115,13 +114,6 @@ class _CommentScreenState extends State<CommentScreen> {
                   child: RichText(
                     textAlign: TextAlign.left,
                     text: TextSpan(
-                      // text: Faker()
-                      //     .lorem
-                      //     .sentences(10)
-                      //     .toString()
-                      //     .replaceAll("[", "")
-                      //     .replaceAll("]", "")
-                      //     .replaceAll(",", ""),
                       text: widget.post.content,
                     ),
                   ),
@@ -151,8 +143,83 @@ class _CommentScreenState extends State<CommentScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CommentBottomBar(
-        textEditingController: textEditingController,
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          height: 50,
+          decoration: const BoxDecoration(color: Colors.black),
+          child: SizedBox(
+            height: 40,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white12,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: TextField(
+                  controller: textEditingController,
+                  style: const TextStyle(color: Colors.white70),
+                  cursorColor: Colors.white70,
+                  decoration: InputDecoration(
+                    suffixIconConstraints: const BoxConstraints(
+                      maxWidth: 30,
+                      maxHeight: 30,
+                    ),
+                    suffix: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {});
+                          commentProvider.comments.add(CommentModel(
+                            id: Faker().randomGenerator.integer(1000),
+                            username: Faker().internet.userName(),
+                            userAvatar: Faker().image.image(
+                                random: true,
+                                keywords: [
+                                  "avatar",
+                                  "person",
+                                  "user",
+                                  "profile"
+                                ]),
+                            content: textEditingController.text,
+                            firstName: Faker().person.firstName(),
+                            hour: Faker().randomGenerator.integer(24, min: 1),
+                          ));
+                        },
+                        child: const Text(
+                          'Send',
+                          style: TextStyle(color: Colors.white70),
+                        ),
+                      ),
+                    ),
+                    border: InputBorder.none,
+                    hintText: 'Comment as ${Faker().person.firstName()}',
+                    hintStyle: const TextStyle(color: Colors.white70),
+                    prefixIconConstraints: const BoxConstraints(maxWidth: 50),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage(
+                            Faker().image.image(
+                              keywords: [
+                                "profile",
+                                "picture",
+                                "selfie",
+                                "person",
+                                "real person"
+                              ],
+                            ),
+                            scale: 0.15),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
