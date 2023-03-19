@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/chat_detail_screen.dart';
 import '/ui/view/widgets/chat_dm.dart';
 import '/ui/view/widgets/chat_search_bar.dart';
 
@@ -66,6 +67,12 @@ class ChatScreen extends StatelessWidget {
             if (details.delta.dx > 0) {
               Navigator.pop(context);
             }
+          },
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ChatDetailScreen()));
           },
           child: SingleChildScrollView(
             child: Column(
