@@ -14,11 +14,14 @@ class CreatePostScreen extends StatelessWidget {
       appBar: const PostCreateAppBar(),
       body: Column(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: const [
-                PostCreateCamera(),
-              ],
+          Flexible(
+            flex: 1,
+            child: SingleChildScrollView(
+              child: Column(
+                children: const [
+                  PostCreateCamera(),
+                ],
+              ),
             ),
           ),
           const PostCreateGallery(),
