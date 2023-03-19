@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/target_profile.dart';
 import '/ui/view/widgets/send_post.dart';
 import '/ui/view/screens/comments_screen.dart';
 import '/ui/view/widgets/post_preview.dart';
@@ -35,13 +36,22 @@ class _TimelinePostsState extends State<TimelinePosts> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      widget.post.userAvatar,
-                      width: 35,
-                      height: 35,
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  TargetProfileScreen(post: widget.post)));
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: Image.network(
+                        widget.post.userAvatar,
+                        width: 35,
+                        height: 35,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(
