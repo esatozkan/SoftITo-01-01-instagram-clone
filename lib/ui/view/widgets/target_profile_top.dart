@@ -114,11 +114,11 @@ class _TargetProfileTopState extends State<TargetProfileTop> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: size.width * 0.60,
-                )
               ],
             ),
+          ),
+          const SizedBox(
+            height: 2,
           ),
           Container(
             width: size.width,
