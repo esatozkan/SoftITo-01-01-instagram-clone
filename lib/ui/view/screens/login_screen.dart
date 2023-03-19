@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/forget_password_screen.dart';
 import 'package:instagram_clone/ui/view/screens/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -104,7 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Spacer(),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const ForgetPasswordScreen()));
+                    },
                     child: const Text(
                       'Forgotten password?',
                       style: TextStyle(color: Colors.blue, fontSize: 12),
@@ -136,16 +143,12 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 30,
               ),
-              Row(
-                children: const [
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Text(
-                    '-------------------------- OR --------------------------',
-                    style: TextStyle(color: Colors.white38),
-                  ),
-                ],
+              const SizedBox(
+                width: 30,
+              ),
+              const Text(
+                '-------------------------- OR --------------------------',
+                style: TextStyle(color: Colors.white38),
               ),
               const SizedBox(
                 height: 30,
