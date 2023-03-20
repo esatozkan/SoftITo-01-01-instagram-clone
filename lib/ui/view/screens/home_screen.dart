@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/ui/view/screens/camera_story_page.dart';
 import '/ui/view/screens/chat_screen.dart';
 import '/ui/providers/post_provider.dart';
 import '/ui/view/widgets/custom_bottom_nav_bar.dart';
@@ -39,7 +40,12 @@ class HomeScreen extends StatelessWidget {
               child: GestureDetector(
                 onPanUpdate: (details) {
                   // Swiping in right direction.
-                  if (details.delta.dx > 0) {}
+                  if (details.delta.dx > 0) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CameraStoryPage()));
+                  }
 
                   // Swiping in left direction.
                   if (details.delta.dx < 0) {
